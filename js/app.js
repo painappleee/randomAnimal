@@ -1,6 +1,6 @@
-const btnDog = document.querySelector('dog')
-const btnCat = document.querySelector('cat')
-const btnFox = document.querySelector('fox')
+const btnDog = document.querySelector('#dog')
+const btnCat = document.querySelector('#cat')
+const btnFox = document.querySelector('#fox')
 
 
 function onClickDog(){
@@ -25,7 +25,24 @@ function onClickDog(){
 }
 
 function onClickCat(){
-
+    fetch("https://api.thecatapi.com/v1/images/search")
+    .then((response) =>{
+        if (!response.ok){
+            throw new Error(`Http error! status = ${response.status}`)
+        }else{
+            return response.json()
+        }
+    })
+    .then ((returned) =>{
+        const returnedImg = returned[0].url
+        const img = document.querySelector(".img")
+        img.src =returnedImg
+   
+    })
+    .catch((e) =>{
+        console.log("There has been a problem with your fetch operation: " + e.message,
+        )
+    })
 }
 
 function onClickFox(){
