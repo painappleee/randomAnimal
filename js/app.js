@@ -1,6 +1,9 @@
-const btn = document.querySelector('.btn')
+const btnDog = document.querySelector('dog')
+const btnCat = document.querySelector('cat')
+const btnFox = document.querySelector('fox')
 
-btn.addEventListener('click', ()=>{
+
+function onClickDog(){
     fetch("https://random.dog/woof.json")
     .then((response) =>{
         if (!response.ok){
@@ -19,4 +22,18 @@ btn.addEventListener('click', ()=>{
         console.log("There has been a problem with your fetch operation: " + e.message,
         )
     })
-} )
+}
+
+function onClickCat(){
+
+}
+
+function onClickFox(){
+
+}
+
+btnDog.addEventListener('click', onClickDog)
+btnCat.addEventListener('click', onClickCat)
+btnFox.addEventListener('click', onClickFox)
+
+
