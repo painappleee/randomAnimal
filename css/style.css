@@ -32,3 +32,8 @@ body {
 .btn {
   padding: 8px;
 }
+
+
+.btn:focus, .btn:active {
+  box-shadow: none !important;
+}
